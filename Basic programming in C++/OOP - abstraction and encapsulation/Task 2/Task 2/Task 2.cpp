@@ -1,66 +1,72 @@
-#include <iostream>
-#include <fstream>
 #include <string>
-#include <vector>
-#include <algorithm>
+#include <fstream>
+#include <iostream>
+
 
 class Address {
-private:
-    std::string city;
-    std::string street;
-    int houseNumber;
-    int apartmentNumber;
-
+	std::string city, street;
+	int house, apartment;
 public:
-    // Конструктор класса
-    Address(const std::string& city, const std::string& street, int houseNumber, int apartmentNumber)
-        : city(city), street(street), houseNumber(houseNumber), apartmentNumber(apartmentNumber) {}
+	Address() {}
+	Address(std::string& city, std::string& street, int house, int apartment) :
+		city(city), street(street), house(house), apartment(apartment) {}
 
-    // Метод для получения строки формата вывода адреса
-    std::string getOutputAddress() const {
-        return city + ", " + street + ", " + std::to_string(houseNumber) + ", " + std::to_string(apartmentNumber);
-    }
+	std::string getOutputAddress() {
+		return city + ", " + street + ", " + std::to_string(house) + ", " + std::to_string(apartment);
+	}
 
-    // Метод для получения названия города
-    std::string getCity() const {
-        return city;
-    }
-
-    // Оператор сравнения для сортировки
-    bool operator<(const Address& other) const {
-        return city < other.city;
-    }
+	std::string getCity() {
+		return city;
+	}
 };
 
+
+void sort(Address* addresses, int size) {
+	for (int i = 0; i < size - 1; i++)
+	{
+		for (int j = i + 1; j < size; j++) {
+			if (addresses[i].getCity() > addresses[j].getCity())
+			{
+				std::swap(addresses[i], addresses[j]);
+			}
+		}
+	}
+}
+
+
 int main() {
-    std::ifstream inFile("in.txt");
-    std::ofstream outFile("out.txt");
+	std::ifstream inputFile("in.txt");
+	std::ofstream outputFile("out.txt");
 
-    int n;
-    inFile >> n;  // Читаем количество адресов
-    inFile.ignore();  // Игнорируем символ новой строки после числа
+	int N;
+	inputFile >> N;
+	inputFile.ignore();
+	Address* addresses = new Address[N];
 
-    std::vector<Address> addresses;
+	for (int i = 0; i < N; i++) {
+		std::string city, street;
+		int house, apartment;
 
-    for (int i = 0; i < n; ++i) {
-        std::string city, street;
-        int houseNumber, apartmentNumber;
+		std::getline(inputFile, city);
+		std::getline(inputFile, street);
+		inputFile >> house >> apartment;
+		inputFile.ignore();
 
-        std::getline(inFile, city);
-        std::getline(inFile, street);
-        inFile >> houseNumber >> apartmentNumber;
-        inFile.ignore();  // Игнорируем символ новой строки после номеров
+		addresses[i] = Address(city, street, house, apartment);
+	}
+	sort(addresses, N);
 
-        addresses.emplace_back(city, street, houseNumber, apartmentNumber);
-    }
+	outputFile << N << std::endl;
 
-    // Сортируем адреса по названию города
-    std::sort(addresses.begin(), addresses.end());
+	for (int i = 0; i < N; i++)
+	{
+		outputFile << addresses[i].getOutputAddress() << std::endl;
+	}
 
-    // Записываем количество адресов в файл
-    outFile << n << std::endl;
+	delete[] addresses;
 
-    // Записываем отсортированные адреса
-    for (const auto& address : addresses) {
-        outFile << address.getOutputAddress() << std::
+	inputFile.close();
+	outputFile.close();
 
+	return 0;
+}
