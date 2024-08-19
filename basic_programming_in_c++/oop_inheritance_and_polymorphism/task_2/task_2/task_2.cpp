@@ -3,7 +3,6 @@
 class Figure {
 public:
     virtual void print_info() = 0;
-    virtual ~Figure() = default;
 };
 
 class Triangle : public Figure {
