@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.22.0)
+project(Client)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+add_library(LeaverLib SHARED Leaver.h Leaver.cpp)
+add_executable(ClientExe client.cpp)
+target_link_libraries(ClientExe LeaverLib)
