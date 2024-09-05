@@ -1,9 +1,0 @@
-# ninja log v5
-10	790	7471647713714939	CMakeFiles/ClientExe.dir/client.cpp.obj	5f9133d80c5ad69f
-15	176	7471649223533862	build.ninja	bf78ca8d6e210a1b
-7	445	7471649487209057	CMakeFiles/ClientExe.dir/client.cpp.obj	5f9133d80c5ad69f
-3	443	7471649987468214	CMakeFiles/LeaverLib.dir/Leaver.cpp.obj	7a09bc0824265dae
-7	450	7471649987538226	CMakeFiles/ClientExe.dir/client.cpp.obj	5f9133d80c5ad69f
-444	1041	7471649993205341	LeaverLib.dll	7b4d796946a15e8f
-444	1041	7471649993205341	LeaverLib.lib	7b4d796946a15e8f
-1041	1341	7471649996205960	ClientExe.exe	67a995400e927b58

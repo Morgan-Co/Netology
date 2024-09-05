@@ -1,4 +1,0 @@
-C:/Morgan-Co/Study/Netology/basic_programming_in_c++/building_and_connecting_libraries/task_3/out/build/x64-Debug/CMakeFiles/LeaverLib.dir
-C:/Morgan-Co/Study/Netology/basic_programming_in_c++/building_and_connecting_libraries/task_3/out/build/x64-Debug/CMakeFiles/ClientExe.dir
-C:/Morgan-Co/Study/Netology/basic_programming_in_c++/building_and_connecting_libraries/task_3/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Morgan-Co/Study/Netology/basic_programming_in_c++/building_and_connecting_libraries/task_3/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
