@@ -6,5 +6,5 @@ Centaur::Centaur() {
 	name = "Centaur";
 
 	driving_time = 8;
-	rest_duration = 2;
+	rest_duration = {2, 2};
 }

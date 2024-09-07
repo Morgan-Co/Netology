@@ -1,6 +1,6 @@
 #pragma once
 
-enum class EAddTransport {
+enum class EAddTransportCode {
 	Success = 0,
 	AlreadyHas,
 	WrongType

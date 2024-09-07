@@ -3,5 +3,5 @@
 
 class AllTerrainBoots : public LandTransport {
 public:
-	AllTerrainBoots();
+	AllTerrainBoots();	
 };

@@ -7,5 +7,5 @@ SpeedsterCamel::SpeedsterCamel() {
 	name = "Camel-Speedster";
 
 	driving_time = 10;
-	rest_duration = 5;
+	rest_duration = {5.0, 6.5, 8.0};
 }

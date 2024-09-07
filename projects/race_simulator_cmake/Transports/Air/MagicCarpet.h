@@ -1,10 +1,9 @@
 #pragma once
 #include "AirTransport.h"
+#include <iostream>
 
 class MagicCarpet : public AirTransport {
 public:
-	MagicCarpet() {
-		speed = 10;
-		//distance_factor 
-	}
+	MagicCarpet();
+	double calculate_result(int distance) override;
 };

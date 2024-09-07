@@ -1,5 +1,6 @@
 #include "AirRace.h"
+#include "../Enums/ERaceTypes.h"
 
 AirRace::AirRace(int distance) : Race(distance) {
-	type = air_race;
+	type = ERaceTypes::air_race;
 }

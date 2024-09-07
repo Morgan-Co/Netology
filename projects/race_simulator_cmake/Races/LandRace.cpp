@@ -1,5 +1,6 @@
 #include "LandRace.h"
+#include "../Enums/ERaceTypes.h"
 
 LandRace::LandRace(int distance) : Race(distance) {
-	type = land_race;
+	type = ERaceTypes::land_race;
 }

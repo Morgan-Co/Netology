@@ -1,13 +1,9 @@
 #pragma once
 #include "AirTransport.h"
+#include <iostream>
 
 class Eagle : public AirTransport {
 public:
-	Eagle() {
-		id = 5;
-		speed = 8;
-		name = "Eagle";
-
-		distance_factor = 6;
-	}
+	Eagle();
+	double calculate_result(int distance) override;
 };

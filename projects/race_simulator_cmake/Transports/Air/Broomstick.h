@@ -3,8 +3,6 @@
 
 class Broomstick : public AirTransport {
 public:
-	Broomstick() {
-		id = 2;
-		speed = 20;
-	}
+	Broomstick();
+	double calculate_result(int distance) override;
 };

@@ -6,5 +6,5 @@ AllTerrainBoots::AllTerrainBoots() {
 	speed = 6;
 
 	driving_time = 60;
-	rest_duration = 10;
+	rest_duration = {10, 5};
 }
