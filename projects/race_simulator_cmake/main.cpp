@@ -12,136 +12,26 @@
 #include "Enums/ETransports.h"
 #include "Enums/EAddTransport.h"
 
-#include "Functions/functions.h"
+#include "Functions/menus.h"
+#include "Functions/race_handler.h"
 
-#include "Transports/Land/Camel.h"
 
 
 
 int main() {
 	int action;
 	int race_type;
-	int distante_length;
+	int distance_length;
 	bool isExit = 0;
 	do
 	{
-		bool isAnotherOne = 0;
-		select_race(race_type);
-		specify_distance(distante_length);
-
-		bool isStart = 1;
-		bool isHaveTwoTransports = 0;
-		Race* current_race = 0;
-
-		do {
-
-			if (isStart)
-			{
-				std::cout << "isHaveTwoTransports: " << isHaveTwoTransports << std::endl;
-				if (!isHaveTwoTransports)
-				{
-					register_menu(action, false);
-				}
-				else {
-					register_menu(action, true);
-				}
-			}
-			isStart = 0;
-
-			switch (action)
-			{
-			case 1: {
-
-				do
-				{
-					int selected_option;
-					switch (race_type)
-					{
-					case 1: {
-						static LandRace land_race(distante_length);
-						std::cout << "Race for the land transport. Distance: " << distante_length << std::endl;
-						print_menu();
-						std::cin >> selected_option;
-						std::cout << std::endl;
-						select_transport(static_cast<ETransports>(selected_option), land_race, isStart);
-						current_race = &land_race;
-						break;
-					}
-					case 2: {
-						static AirRace air_race(distante_length);
-						std::cout << "Race for the air transport. Distance: " << distante_length << std::endl;
-						print_menu();
-						std::cin >> selected_option;
-						std::cout << std::endl;
-						select_transport(static_cast<ETransports>(selected_option), air_race, isStart);
-						current_race = &air_race;
-						break;
-					}
-					case 3: {
-						static MixedRace mixed_race(distante_length);
-						std::cout << "Race for the land and air transport. Distance: " << distante_length << std::endl;
-						print_menu();
-						std::cin >> selected_option;
-						std::cout << std::endl;
-						select_transport(static_cast<ETransports>(selected_option), mixed_race, isStart);
-						current_race = &mixed_race;
-						break;
-					}
-					default:
-						break;
-					}
-					if (isStart) break;
-					if (current_race != nullptr && current_race->getTransports().size() >= 2) isHaveTwoTransports = 1;
-					break;
-				} while (true);
-				break;
-			}
-			case 2: {
-				if (current_race != nullptr && current_race->getTransports().size() < 2) break;
-				int size;
-				if (current_race != nullptr) size = current_race->getTransports().size();
-				else break;
-
-
-				std::cout << "Race results: " << std::endl;
-
-				for (int i = 0; i < size; i++)
-				{
-					std::string name = current_race->getTransports()[i]->getName();
-					double result = current_race->getTransports()[i]->calculate_result(distante_length);
-
-					std::cout << (i + 1) << ". " << name << ". " << "Time (hours): " << result << std::endl;
-				}
-				std::cout << std::endl;
-
-				int final_action;
-				std::cout << "1. Hold antoher race" << std::endl;
-				std::cout << "2. Exit" << std::endl;
-				std::cout << "Select an action: ";
-				std::cin >> final_action;
-				std::cout << std::endl;
-				if (final_action == 1) {
-					isAnotherOne = 1;
-					break;
-				}
-				else if (final_action == 2)
-				{
-					isExit = 1;
-					break;
-				}
-				if (isAnotherOne) break;
-			}
-			default:
-				break;
-			}
-
-			if (isAnotherOne || isExit) break;
-		} while (true);
+		race_type = select_race_menu();
+		distance_length = specify_distance_menu();
+		race_handler(distance_length, action, race_type, isExit);
 
 		if (isExit) break;
 	} while (true);
 
-	
 }
 
 

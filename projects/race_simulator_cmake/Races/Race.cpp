@@ -36,3 +36,7 @@ const EAddTransportCode Race::add_transport(std::unique_ptr<Transport> transport
 		return EAddTransportCode::AlreadyHas;
 	}
 }
+
+const int& Race::getDistance() const {
+	return distance;
+}

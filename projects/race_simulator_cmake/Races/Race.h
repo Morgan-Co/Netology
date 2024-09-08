@@ -13,10 +13,13 @@ protected:
 	std::vector<std::unique_ptr<Transport>> transports;
 public:
 	Race(int distance);
-	const EAddTransportCode add_transport(std::unique_ptr<Transport> transport);
+
 	ERaceTypes& getType();
+
+	const EAddTransportCode add_transport(std::unique_ptr<Transport> transport);
+
 	const std::vector<std::unique_ptr<Transport>>& getTransports();
 
-
+	const int& getDistance() const;
 
 };
