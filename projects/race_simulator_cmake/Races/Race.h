@@ -18,8 +18,10 @@ public:
 
 	const EAddTransportCode add_transport(std::unique_ptr<Transport> transport);
 
-	const std::vector<std::unique_ptr<Transport>>& getTransports();
+	const std::vector<std::unique_ptr<Transport>>& getTransports() const;
 
 	const int& getDistance() const;
+
+	void clear_transports();
 
 };

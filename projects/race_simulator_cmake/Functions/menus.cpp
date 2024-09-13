@@ -1,10 +1,21 @@
 #include <iostream>
+#include <vector>
 
 #include "menus.h"
 #include "../Enums/ETransports.h"
 #include "../Races/Race.h"
 
-void transports_menu() {
+void transports_menu(const std::vector<std::unique_ptr<Transport>> &transports) {
+	if (transports.size() > 0)
+	{
+		std::cout << "Registered transports: ";
+		for (int i = 0; i < transports.size(); i++)
+		{
+			 
+			std::cout << transports[i]->getName() << ((i == transports.size() - 1) ? "" : ", ");
+		}
+		std::cout << std::endl;
+	}
 	std::cout << "1. All Terrain Boots" << std::endl;
 	std::cout << "2. Broomstick" << std::endl;
 	std::cout << "3. Camel" << std::endl;

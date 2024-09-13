@@ -11,7 +11,6 @@ Broomstick::Broomstick() {
 
 double Broomstick::calculate_result(int distance) {
 	distance_factor *= std::floor(distance / 1000);
-	std::cout << distance_factor << std::endl;
 	double distance_with_shortening = distance * (1 - distance_factor);
 	double result = distance_with_shortening / speed;
 	return result;

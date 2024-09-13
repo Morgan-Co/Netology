@@ -6,7 +6,5 @@ protected:
 	double distance_factor = 0;
 public:
 	AirTransport();
-	double calculate_result(int distance) override {
-		return 0;
-	}
+	double calculate_result(int distance) override;
 };

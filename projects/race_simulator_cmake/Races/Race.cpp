@@ -12,7 +12,7 @@ ERaceTypes& Race::getType() {
 	return type;
 }
 
-const std::vector<std::unique_ptr<Transport>>& Race::getTransports() {
+const std::vector<std::unique_ptr<Transport>>& Race::getTransports() const {
 	return transports;
 };
 
@@ -39,4 +39,8 @@ const EAddTransportCode Race::add_transport(std::unique_ptr<Transport> transport
 
 const int& Race::getDistance() const {
 	return distance;
+}
+
+void Race::clear_transports() {
+	transports.clear();
 }

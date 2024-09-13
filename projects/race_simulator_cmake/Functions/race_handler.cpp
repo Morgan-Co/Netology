@@ -73,14 +73,24 @@ void race_handler(const int& distance_length, int& action, const int& race_type,
 			else break;
 
 
+
 			std::cout << "Race results: " << std::endl;
+			std::vector<std::pair<std::string, double>> results;
+			for (int i = 0; i < size; i++)
+			{
+				double result = current_race->getTransports()[i]->calculate_result(distance_length);
+				std::string name = current_race->getTransports()[i]->getName();
+				results.push_back({ name, result });
+			}
+			std::sort(results.begin(), results.end(),
+			[](const std::pair<std::string, double>& a, const std::pair<std::string, double>& b) {
+					return a.second < b.second;
+			});
 
 			for (int i = 0; i < size; i++)
 			{
-				std::string name = current_race->getTransports()[i]->getName();
-				double result = current_race->getTransports()[i]->calculate_result(distance_length);
-
-				std::cout << (i + 1) << ". " << name << ". " << "Time (hours): " << result << std::endl;
+				
+				std::cout << (i + 1) << ". " << results[i].first << ". " << "Time (hours): " << results[i].second << std::endl;
 			}
 			std::cout << std::endl;
 
@@ -99,7 +109,9 @@ void race_handler(const int& distance_length, int& action, const int& race_type,
 		default:
 			break;
 		}
-
-		if (isAnotherOne || isExit) break;
+		if (isAnotherOne || isExit) {
+			current_race->clear_transports();
+			break;
+		};
 	} while (true);
 }
