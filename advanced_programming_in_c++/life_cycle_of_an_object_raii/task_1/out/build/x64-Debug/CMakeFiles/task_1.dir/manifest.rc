@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/nikit/Netology/advanced_programming_in_c++/life_cycle_of_an_object_raii/task_1/out/build/x64-Debug/CMakeFiles/task_1.dir/embed.manifest"
