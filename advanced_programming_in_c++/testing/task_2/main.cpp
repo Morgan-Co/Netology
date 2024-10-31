@@ -85,6 +85,10 @@ private:
 
 TEST_CASE("Front") {
 	List list;
+	SECTION("Empty list") {
+		REQUIRE_THROWS(list.PopFront());
+	}
+
 	list.PushFront(3);
 	list.PushFront(2);
 	list.PushFront(1);
@@ -102,6 +106,9 @@ TEST_CASE("Front") {
 
 TEST_CASE("Back") {
 	List list;
+	SECTION("Empty list") {
+		REQUIRE_THROWS(list.PopBack());
+	}
 	list.PushBack(3);
 	list.PushBack(2);
 	list.PushBack(1);
