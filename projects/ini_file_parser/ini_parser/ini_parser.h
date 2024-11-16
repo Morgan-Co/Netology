@@ -14,9 +14,9 @@ private:
 
 	void trim_spaces(std::string& line);
 
-	void get_variable_name(std::string& line);
+	bool is_valid_section(const std::string& line);
 
-	std::string generate_line(const std::string& line);
+	bool is_valid_variable(const std::string& line);
 
 public:
 	ini_parser(std::string file_name);
