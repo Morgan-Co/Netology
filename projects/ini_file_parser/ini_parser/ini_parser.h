@@ -4,11 +4,13 @@
 #include <string>
 #include <stdexcept>
 #include <regex>
+#include <vector>
+#include <unordered_map>
 
 
 class ini_parser {
 private:
-	std::ifstream m_file;
+	std::unordered_map<std::string, std::unordered_map<std::string, std::string>> m_file;
 
 	void remove_comments(std::string& line);
 
@@ -18,12 +20,11 @@ private:
 
 	bool is_valid_variable(const std::string& line);
 
+	std::string get_value_template(std::string input_data);
+
 public:
 	ini_parser(std::string file_name);
 
-	std::string get_value(std::string input_data);
-
-	void print_file();
-
-	~ini_parser();
+	template <typename T>
+	T get_value(std::string input_data);
 };

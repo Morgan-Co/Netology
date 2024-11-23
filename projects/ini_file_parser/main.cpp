@@ -7,6 +7,6 @@
 int main() {
 	ini_parser parser("../../../some.ini");
 	
-	auto value = parser.get_value("Section1.va4");
+	auto value = parser.get_value<int>("Section1.value");
 	std::cout << value << std::endl;
 }

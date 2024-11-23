@@ -2,6 +2,17 @@
 
 // PRIVATE SECTION ----------------------------------------------------------------
 
+// Get value function
+std::string ini_parser::get_value_template(std::string input_data) {
+	size_t dotPos = input_data.find('.');
+	if (dotPos == std::string::npos) return "";
+
+	std::string section_name = input_data.substr(0, dotPos);
+	std::string var_name = input_data.substr(dotPos + 1, input_data.size() - 1);
+
+	return m_file[section_name][var_name];
+};
+
 // Remove all comments in a line
 void ini_parser::remove_comments(std::string& line) {
 	char commentChar = ';';
@@ -39,31 +50,15 @@ ini_parser::ini_parser(std::string file_name) {
 	std::ifstream file(file_name);
 	if (!file.is_open())
 		throw std::runtime_error("Cannot open file: " + file_name);
-	m_file = std::move(file);
-	file.close();
-};
 
-// Get value function
-std::string ini_parser::get_value(std::string input_data) {
-	std::string section_name, var_name;
 	int line_number = 0;
-
-	size_t dot_position = input_data.find(".");
-
-	if (dot_position != std::string::npos)
-	{
-		section_name = "[" + input_data.substr(0, dot_position) + "]";
-		var_name = input_data.substr(dot_position + 1, input_data.size() - 1);
-	}
 	std::string line;
-	bool inSection = false;
-	std::string finish_value;
-	size_t i = 0;
-	std::vector<std::pair<std::string, std::string>> section_vars;
-	while (std::getline(m_file, line)) {
+	std::string current_section;
+	while (std::getline(file, line)) {
 		line_number++;
 		remove_comments(line);
 		trim_spaces(line);
+
 		if (!(is_valid_section(line) || is_valid_variable(line)) && line[0] != ' ' && line[0] != 0) {
 			std::cout << "\033[31m-------------------------\033[0m" << std::endl;
 			std::cout << "\033[31mInvalid format on the line: \033[0m" << "\033[31m" << line_number << "\033[0m" << std::endl;
@@ -71,67 +66,40 @@ std::string ini_parser::get_value(std::string input_data) {
 
 		}
 
-		if (!inSection) {
-			if (line == section_name) {
-				inSection = true;
+		if (is_valid_section(line)) {
+			current_section = line.substr(1, line.size() - 2);
+			m_file[current_section];
+
+		}
+		else if (!is_valid_section(line) && line[0] != ' ' && line[0] != 0) {
+			size_t equalPos = line.find('=');
+			if (equalPos != std::string::npos) {
+				std::string var_name = line.substr(0, equalPos);
+				std::string var_value = line.substr(equalPos + 1, line.size() - 1);
+				m_file[current_section][var_name] = var_value;
 			}
 		}
-		else {
-			if (!line.empty() && line[0] == '[') {
-				inSection = false;
-			}
-			else {
-				size_t equalPos = line.find('=');
-				if (equalPos != std::string::npos)
-				{
-
-					std::string current_var_name = line.substr(0, equalPos);
-					std::string current_var_value = line.substr(equalPos + 1, line.size() - 1);
-			
-					auto it = std::find_if(section_vars.begin(), section_vars.end(),
-						[&current_var_name](const std::pair<std::string, std::string>& pair) {
-							return pair.first == current_var_name;
-						});
-
-					if (it != section_vars.end()) {
-						it->second = current_var_value;
-					}
-					else {
-						section_vars.push_back({ current_var_name, current_var_value });
-					}
-				}
-			}
-		}
+	
 	}
-
-	auto it = std::find_if(section_vars.begin(), section_vars.end(),
-		[&var_name](const std::pair<std::string, std::string>& pair) {
-			return pair.first == var_name;
-		});
-
-	if (it != section_vars.end()) {
-		return  it->second;
-	}
-	else {
-		std::cout << "Key is not found. Other vars in section: " << std::endl;
-		for (const auto& pair : section_vars)
-		{
-			std::cout << "|   " << pair.first << "   |" << std::endl;
-		}
-		return "";
-	}
+	file.close();
 };
 
-// Print function
-void ini_parser::print_file() {
-	std::string line;
-	while (std::getline(m_file, line)) {
-		std::cout << line << std::endl;
-	}
+template <typename T>
+T ini_parser::get_value(std::string input_data) {
+	static_assert(sizeof(T) == -1, "not implemented type for get_value");
 }
 
-// Destructor
-ini_parser::~ini_parser() {
-	if (m_file.is_open()) m_file.close();
+// Specialization for int
+template <>
+int ini_parser::get_value(std::string input_data) {
+	std::string value = get_value_template(input_data);
+	return std::stoi(value);
 }
+
+// Specialization for std::string
+template <>
+std::string ini_parser::get_value(std::string input_data) {
+	return get_value_template(input_data);
+}
+
 
