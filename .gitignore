@@ -404,3 +404,4 @@ out/
 
 .idea/
 cmake-build-debug/
+.gitignore
