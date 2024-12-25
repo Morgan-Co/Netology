@@ -1,4 +1,17 @@
-/home/morgan/Apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/morgan/Apps/clion/bin/ninja/linux/x64/ninja -DCMAKE_CXX_COMPILER=/bin/g++ -G Ninja -S /home/morgan/Netology/working_with_databases/task_1 -B /home/morgan/Netology/working_with_databases/task_1/cmake-build-debug
--- Configuring done (0.1s)
+/home/morgan/Apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/morgan/Apps/clion/bin/ninja/linux/x64/ninja -DCMAKE_CXX_COMPILER=/bin/g++ -G Ninja -S /home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1 -B /home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug
+-- The C compiler identification is GNU 14.2.1
+-- The CXX compiler identification is GNU 14.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PostgreSQL: /usr/lib/libpq.so (found version "16.3")
+-- Configuring done (1.2s)
 -- Generating done (0.0s)
--- Build files have been written to: /home/morgan/Netology/working_with_databases/task_1/cmake-build-debug
+-- Build files have been written to: /home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug

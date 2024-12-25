@@ -1,4 +1,4 @@
-# Install script for directory: /home/morgan/Netology/working_with_databases/task_1
+# Install script for directory: /home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/morgan/Netology/working_with_databases/task_1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

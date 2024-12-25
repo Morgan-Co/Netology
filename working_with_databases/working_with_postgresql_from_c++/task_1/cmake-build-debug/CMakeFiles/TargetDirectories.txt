@@ -1,3 +1,3 @@
-/home/morgan/Netology/working_with_databases/task_1/cmake-build-debug/CMakeFiles/task_1.dir
-/home/morgan/Netology/working_with_databases/task_1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/morgan/Netology/working_with_databases/task_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug/CMakeFiles/task_1.dir
+/home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/morgan/Netology/working_with_databases/working_with_postgresql_from_c++/task_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
