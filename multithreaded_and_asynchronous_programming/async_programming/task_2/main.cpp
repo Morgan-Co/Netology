@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <future>
 #include <iterator>
+#include <utility>
 #include <vector>
 #include <iostream>
 
@@ -18,6 +19,7 @@ void parallel_for_each(Iterator begin, Iterator end, Func&& func) {
   std::advance(mid, length / 2);
   
   auto future = std::async(std::launch::async, parallel_for_each<Iterator, Func>, begin, mid, std::forward<Func>(func));
+  parallel_for_each(mid, end, std::forward<Func>(func));
 
   future.wait();
 }
