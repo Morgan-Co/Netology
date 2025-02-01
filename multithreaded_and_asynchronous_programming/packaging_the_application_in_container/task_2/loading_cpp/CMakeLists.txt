@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(loading_cpp)
+find_package(Threads REQUIRED)
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(loading_cpp PRIVATE Threads::Threads)
