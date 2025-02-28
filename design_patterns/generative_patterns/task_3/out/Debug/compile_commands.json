@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/nikita/Netology/design_patterns/generative_patterns/task_3/out/Debug",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/task_3.dir/main.cpp.o -c /home/nikita/Netology/design_patterns/generative_patterns/task_3/main.cpp",
-  "file": "/home/nikita/Netology/design_patterns/generative_patterns/task_3/main.cpp",
-  "output": "CMakeFiles/task_3.dir/main.cpp.o"
-}
-]
