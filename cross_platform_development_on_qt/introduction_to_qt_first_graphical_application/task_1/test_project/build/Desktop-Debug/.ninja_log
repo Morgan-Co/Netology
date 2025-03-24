@@ -1,0 +1,9 @@
+# ninja log v6
+2	390	1742142352997382310	test_project_autogen/timestamp	c9224d6d5b6321cb
+2	390	1742142352997382310	test_project_autogen/mocs_compilation.cpp	c9224d6d5b6321cb
+2	390	1742142352997382310	/home/nikita/test_project/build/Desktop-Debug/test_project_autogen/timestamp	c9224d6d5b6321cb
+2	390	1742142352997382310	/home/nikita/test_project/build/Desktop-Debug/test_project_autogen/mocs_compilation.cpp	c9224d6d5b6321cb
+391	2685	1742142353013442723	CMakeFiles/test_project.dir/test_project_autogen/mocs_compilation.cpp.o	ec21d1e18b570908
+391	2736	1742142353014695896	CMakeFiles/test_project.dir/main.cpp.o	f82f2f7c16a4b7cf
+392	2768	1742142353014933989	CMakeFiles/test_project.dir/mainwindow.cpp.o	73065d7b873483ce
+2768	3025	1742142355390368693	test_project	8028d3176d7cef17

@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_test_project_FILE /home/nikita/test_project/build/Desktop-Debug/test_project)
+set(__QT_DEPLOY_TARGET_test_project_TYPE EXECUTABLE)

@@ -1,0 +1,9 @@
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/test_project.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/install.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/test_project_autogen_timestamp_deps.dir
+/home/nikita/test_project/build/Desktop-Debug/CMakeFiles/test_project_autogen.dir
