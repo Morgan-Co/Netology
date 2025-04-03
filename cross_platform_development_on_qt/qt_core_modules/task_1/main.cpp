@@ -6,11 +6,9 @@
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    // Экземпляр для работы с сетью
     QNetworkAccessManager networkManager;
     qDebug() << "QNetworkAccessManager создан.";
 
-    // Экземпляр для работы с базой данных (SQLite)
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("example.db");
 
