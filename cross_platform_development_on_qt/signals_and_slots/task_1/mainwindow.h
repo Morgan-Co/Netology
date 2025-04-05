@@ -20,9 +20,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void updateDisplay(QString &timeText);
-    QString getTimeText();
-
+    void toggleStartStop();
+    void updateDisplay(const QString &time);
+    void updateLaps(const QList<Lap> &laps);
 private:
     Ui::MainWindow *ui;
     Stopwatch stopwatch;

@@ -2,6 +2,15 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QElapsedTimer>
+#include <QList>
+#include <QPair>
+
+struct Lap {
+    qint64 totalElapsed;
+    qint64 lapTime;
+    long long lapsCount;
+};
 
 class Stopwatch : public QObject {
     Q_OBJECT
@@ -9,20 +18,25 @@ class Stopwatch : public QObject {
 public:
     Stopwatch(QObject *parent = 0);
 
-public slots:
-    void startStop();
+    void start();
+    void stop();
     void reset();
-    void round();
+    void lap();
+
+    bool isRunning();
 
 private slots:
-    void updateTime();
-
-private:
-    int milliseconds;
-    int round_count;
-    QTimer timer;
+    void elapsedTime();
 
 signals:
-    void timeUpdated(QString &timeText);
-    void requestTime(QString text);
+    void timeUpdated(const QString &formatedTime);
+    void lapsUpdated(const QList<Lap> &laps);
+
+private:
+    QElapsedTimer elapsedTimer;
+    QTimer timer;
+    bool running = false;
+    qint64 storedTime = 0;
+    qint64 lastLap = 0;
+    QList<Lap> laps;
 };
