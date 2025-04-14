@@ -2,6 +2,5 @@ out/
 .cache/
 compile_commands.json
 
-qcustomplot/
 
 cross_platform_development_on_qt/drawing_graphs/PreGraphic/testData.adc
