@@ -1,5 +1,7 @@
 #include "database.h"
 
+#include <QSqlQuery>
+
 DataBase::DataBase(QObject *parent)
     : QObject{parent}
 {
@@ -67,9 +69,12 @@ void DataBase::DisconnectFromDataBase(QString nameDb)
  */
 void DataBase::RequestToDB(QString request)
 {
-
-    ///Тут должен быть код ДЗ
-
+    QSqlQuery query(*dataBase);
+    if (query.exec(request)) {
+        emit sig_SendQueryResult(query);
+    } else {
+        emit sig_SendQueryError(query.lastError());
+    }
 }
 
 /*!
