@@ -7,6 +7,9 @@
 #include "database.h"
 #include "dbdata.h"
 
+#include <QSqlTableModel>
+#include <QSqlQueryModel>
+
 
 
 QT_BEGIN_NAMESPACE
@@ -31,6 +34,7 @@ private slots:
     void on_act_addData_triggered();
     void on_act_connect_triggered();
     void on_pb_request_clicked();
+    void on_pb_clear_clicked();
 
 
 signals:
@@ -44,6 +48,9 @@ private:
     DbData *dataDb;
     DataBase* dataBase;
     QMessageBox* msg;
+
+    QSqlTableModel* modeAllFilms = nullptr;
+    QSqlQueryModel* modeFilteredFilms = nullptr;
 
     QString request = "SELECT title, release_year, c.name  FROM film f "
                       "JOIN film_category fc on f.film_id = fc.film_id "

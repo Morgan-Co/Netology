@@ -9,7 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Concurrent Sql PrintSupport)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql Concurrent PrintSupport)
+
 
 set(PROJECT_SOURCES
         main.cpp
@@ -27,21 +28,16 @@ add_executable(08_PreDataBase
         ${PROJECT_SOURCES}
 )
 
+
 target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/PG_Libs)
-
-# Без 'lib' в начале
 target_link_libraries(08_PreDataBase PRIVATE Qt6::Widgets
-                                             crypto-3-x64
-                                             iconv-2
-                                             intl-9
-                                             pq
-                                             ssl-3-x64
-                                             Qt${QT_VERSION_MAJOR}::Concurrent
-                                             Qt${QT_VERSION_MAJOR}::Sql
-                                             Qt${QT_VERSION_MAJOR}::PrintSupport)
+        pq
+        ssl
+        crypto
+        iconv Qt6::Sql Qt6::Concurrent Qt6::PrintSupport)
 
-# Копируем .dll после сборки
-add_custom_command(TARGET 08_PreDataBase POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${CMAKE_SOURCE_DIR}/PG_Libs/bin"
-        "$<TARGET_FILE_DIR:08_PreDataBase>")
+
+
+
+
+
