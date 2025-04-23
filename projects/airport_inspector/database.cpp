@@ -29,7 +29,6 @@ void DataBase::loadAirports() {
             QString airportName = query.value("airportName").toString();
             QString airportCode = query.value("airport_code").toString();
             airports.append({airportName, airportCode});
-            // qDebug() << airportName;
         }
     }
 
@@ -90,7 +89,6 @@ void DataBase::requestToYearStat(const QString &airportCode) {
 }
 
 void DataBase::requestToMonthStat(const QString &airportCode, const int &month) {
-    qDebug() << "Line 96:";
     QString strQuery = R"(
     SELECT count(flight_no), date_trunc('day', scheduled_departure) AS "Day"
     FROM bookings.flights f
